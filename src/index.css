@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* Light theme colors (Editorial warm cream) */
+    --bg-primary: #F7F1E7;
+    --bg-secondary: #EFE5D7;
+    --bg-card: #FFFFFF;
+    --text-primary: #211A46;
+    --text-secondary: #625D70;
+    --border-color: rgba(33, 26, 70, 0.12);
+    --accent-coral: #FF4D2E;
+    --accent-lavender: #B99AF4;
+    --accent-yellow: #F4F044;
+    --dark-section: #17152A;
+  }
+
+  .dark {
+    /* Dark theme colors (Luxury midnight) */
+    --bg-primary: #121020;
+    --bg-secondary: #1A162E;
+    --bg-card: #1D1936;
+    --text-primary: #F7F1E7;
+    --text-secondary: #A8A2BC;
+    --border-color: rgba(247, 241, 231, 0.12);
+    --accent-coral: #FF4D2E;
+    --accent-lavender: #C4A7FF;
+    --accent-yellow: #F4F044;
+    --dark-section: #0B0914;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .font-serif-heading {
+    font-family: var(--font-serif);
+  }
+
+  .font-mono-code {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Custom Utilities */
+.font-editorial {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-editorial-alt {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+}
+
+/* Ticker Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-lavender);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-coral);
+}
+
+/* Subtle Grid Background Pattern */
+.bg-editorial-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(98, 93, 112, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(98, 93, 112, 0.05) 1px, transparent 1px);
+}
+
+.dark .bg-editorial-grid {
+  background-image: 
+    linear-gradient(to right, rgba(247, 241, 231, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(247, 241, 231, 0.04) 1px, transparent 1px);
+}
+
+/* Backdrop Glassmorphism */
+.editorial-glass {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Smooth Image Scale on Hover */
+.img-zoom-wrapper {
+  overflow: hidden;
+}
+
+.img-zoom-wrapper img {
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-zoom-wrapper:hover img {
+  transform: scale(1.05);
+}
+
